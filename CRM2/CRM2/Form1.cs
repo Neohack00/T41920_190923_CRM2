@@ -16,5 +16,15 @@ namespace CRM2
         {
             InitializeComponent();
         }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
