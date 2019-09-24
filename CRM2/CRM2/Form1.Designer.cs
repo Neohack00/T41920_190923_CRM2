@@ -173,7 +173,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(133, 20);
             this.textBox5.TabIndex = 14;
-          
             // 
             // button3
             // 
@@ -183,6 +182,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button4
             // 

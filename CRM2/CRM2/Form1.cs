@@ -66,6 +66,44 @@ namespace CRM2
             }
         }
 
+        //Search
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            string Favomsg = "";
+            bool foundTarget = false;
+            listBox1.Items.Clear();
+            foreach (Customer SearchedCustomer in CustomerList)
+            {
+                
+                if (SearchedCustomer.Fullname == textBox5.Text) 
+                {
+                    foundTarget = true;
+                    if (SearchedCustomer.Favorite == true)
+                    {
+                        Favomsg = "Is marked as favorite customer";
+                    }
+                    else if (SearchedCustomer.Favorite == false)
+                    {
+                        Favomsg = "Is not marked as favorite customer";
+                    }
+                    string Fullname = "Customers fullname: " + SearchedCustomer.Fullname;
+                    string Phone = "Phone number: " + SearchedCustomer.Phone;
+                    string Email = "Email: " + SearchedCustomer.Email;
+                    listBox1.Items.Add(Fullname);
+                    listBox1.Items.Add(Phone);
+                    listBox1.Items.Add(Email);
+                    listBox1.Items.Add(Favomsg);
+                }  
+            }
+            if (foundTarget == false)
+            {
+                listBox1.Items.Add("What you looking for does not exist!");
+                listBox1.Items.Add("Check your spelling include spaces and Capital letters!");
+            }
+        
+        }
+
+
 
 
 
