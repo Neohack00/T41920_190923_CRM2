@@ -66,10 +66,20 @@ namespace CRM2
             }
         }
 
+
+
+
+
+
+
         //First Name input textbox = textBox1
         //Surname input textbox = textBox2
         // Email input textbox = textBox3
         //Phone input textbox = textBox4
+        // Search input textbox = textBox5
+        //button 4 = Show Customer
+        //button 3 = Search
+        //
 
     }
 }
