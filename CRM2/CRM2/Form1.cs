@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,20 @@ namespace CRM2
 {
     public partial class Form1 : Form
     {
-        System.Collections.ArrayList CustomerList = new System.Collections.ArrayList();
+        ArrayList CustomerList = new ArrayList();
+
         public Form1()
         {
             InitializeComponent();
+            CustomerList.Add(new Customer() { Fullname = "Groot" , FirstName = "Groot" , Surname = " ", Email = "Groot@groot.groot" , Favorite = true , Phone = "I am Groot" });
+            CustomerList.Add(new Customer() { Fullname = "Neo hack", FirstName = "Neo", Surname = "Hack", Email = "Neohackpower@gmail.com", Favorite = true, Phone = "Unknown" });
+            CustomerList.Add(new Customer() { Fullname = "Lucifer Morningstar", FirstName = "Lucifer", Surname = "Morningstar", Email = "Lucifer@Morningstar.hell", Favorite = true, Phone = "666 661 611" });
+            CustomerList.Add(new Customer() { Fullname = "God", FirstName = "God", Surname = " ", Email = "God@Allmighty.heaven", Favorite = true , Phone = "331 133 311" });
+            CustomerList.Add(new Customer() { Fullname = "Jeff Jeffson", FirstName = "Jeff", Surname = "Jeffson", Email = "Jeffson@gmail.com", Favorite = false, Phone = "070 452 04 58" });
+            CustomerList.Add(new Customer() { Fullname = "Neo Bylock", FirstName = "Neo", Surname = "Bylock", Email = "neo@bylock.se", Favorite = false, Phone = "070 778 54 50" });
+            CustomerList.Add(new Customer() { Fullname = "Neia Hack", FirstName = "Neia", Surname = "Hack", Email = "Neiahackpower@gmail.com", Favorite = false, Phone = "070 545 08 77" });
         }
+
 
         // Add button
         private void Button2_Click(object sender, EventArgs e)
@@ -35,6 +45,11 @@ namespace CRM2
                 Phone = textBox4.Text,
                 Favorite = Favstatus
             });
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            listBox1.Items.Clear();
             string listmessage = "Customer " + fullName + " has been added";
             listBox1.Items.Add(listmessage);
 
@@ -44,7 +59,11 @@ namespace CRM2
         // Show list button
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Clear();
+            foreach(Customer x in CustomerList)
+            {
+                listBox1.Items.Add(x.Fullname);
+            }
         }
 
         //First Name input textbox = textBox1
@@ -52,10 +71,5 @@ namespace CRM2
         // Email input textbox = textBox3
         //Phone input textbox = textBox4
 
-        //Favorite option
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
