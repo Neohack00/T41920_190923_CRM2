@@ -13,12 +13,6 @@ namespace CRM2
     public partial class Form1 : Form
     {
         System.Collections.ArrayList CustomerList = new System.Collections.ArrayList();
-        string firstName;
-        string surname;
-        string phone;
-        string email;
-        string fullName;
-        bool Favorite = false;
         public Form1()
         {
             InitializeComponent();
@@ -26,8 +20,25 @@ namespace CRM2
 
         // Add button
         private void Button2_Click(object sender, EventArgs e)
-        {
-            CustomerList.Add(new Customer() { FirstName = firstName, Surname = surname, Email = email, Fullname = fullName, Phone = phone , });
+        { bool Favstatus = false;
+            if(checkBox1.Checked == true)
+            {
+                Favstatus = true;
+            }
+            string fullName = textBox1.Text + " " + textBox2.Text;
+            CustomerList.Add(new Customer()
+            {
+                FirstName = textBox1.Text,
+                Surname = textBox2.Text,
+                Email = textBox3.Text,
+                Fullname = fullName,
+                Phone = textBox4.Text,
+                Favorite = Favstatus
+            });
+            string listmessage = "Customer " + fullName + " has been added";
+            listBox1.Items.Add(listmessage);
+
+
         }
 
         // Show list button
@@ -36,29 +47,11 @@ namespace CRM2
 
         }
 
-        //First Name input textbox
+        //First Name input textbox = textBox1
+        //Surname input textbox = textBox2
+        // Email input textbox = textBox3
+        //Phone input textbox = textBox4
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        //Surname input textbox
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        // Email input textbox
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        //Phone input textbox
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         //Favorite option
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
