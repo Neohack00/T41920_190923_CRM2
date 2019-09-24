@@ -19,7 +19,7 @@ namespace CRM2
         {
             InitializeComponent();
             CustomerList.Add(new Customer() { Fullname = "Groot" , FirstName = "Groot" , Surname = " ", Email = "Groot@groot.groot" , Favorite = true , Phone = "I am Groot" });
-            CustomerList.Add(new Customer() { Fullname = "Neo hack", FirstName = "Neo", Surname = "Hack", Email = "Neohackpower@gmail.com", Favorite = true, Phone = "Unknown" });
+            CustomerList.Add(new Customer() { Fullname = "Neo Hack", FirstName = "Neo", Surname = "Hack", Email = "Neohackpower@gmail.com", Favorite = true, Phone = "Unknown" });
             CustomerList.Add(new Customer() { Fullname = "Lucifer Morningstar", FirstName = "Lucifer", Surname = "Morningstar", Email = "Lucifer@Morningstar.hell", Favorite = true, Phone = "666 661 611" });
             CustomerList.Add(new Customer() { Fullname = "God", FirstName = "God", Surname = " ", Email = "God@Allmighty.heaven", Favorite = true , Phone = "331 133 311" });
             CustomerList.Add(new Customer() { Fullname = "Jeff Jeffson", FirstName = "Jeff", Surname = "Jeffson", Email = "Jeffson@gmail.com", Favorite = false, Phone = "070 452 04 58" });
@@ -74,12 +74,14 @@ namespace CRM2
             listBox1.Items.Clear();
             foreach (Customer SearchedCustomer in CustomerList)
             {
-                
-                if (SearchedCustomer.Fullname == textBox5.Text) 
-                {
-                    foundTarget = true;
-                    listBox1.Items.Add(SearchedCustomer);
-                }  
+                if (textBox5.Text != "" && textBox5.Text != " ")
+                { 
+                    if (SearchedCustomer.Fullname == textBox5.Text || SearchedCustomer.FirstName == textBox5.Text || SearchedCustomer.Surname == textBox5.Text ) 
+                    {
+                        foundTarget = true;
+                        listBox1.Items.Add(SearchedCustomer.Fullname);
+                    }
+                }
             }
             if (foundTarget == false)
             {
