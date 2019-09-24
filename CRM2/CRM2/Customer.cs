@@ -13,6 +13,7 @@ namespace CRM2
         public string Surname { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public bool Favorite { get; set; }
 
     }
 }
