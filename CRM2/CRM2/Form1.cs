@@ -69,7 +69,7 @@ namespace CRM2
         //Search
         private void Button3_Click(object sender, EventArgs e)
         {
-            string Favomsg = "";
+            
             bool foundTarget = false;
             listBox1.Items.Clear();
             foreach (Customer SearchedCustomer in CustomerList)
@@ -78,21 +78,7 @@ namespace CRM2
                 if (SearchedCustomer.Fullname == textBox5.Text) 
                 {
                     foundTarget = true;
-                    if (SearchedCustomer.Favorite == true)
-                    {
-                        Favomsg = "Is marked as favorite customer";
-                    }
-                    else if (SearchedCustomer.Favorite == false)
-                    {
-                        Favomsg = "Is not marked as favorite customer";
-                    }
-                    string Fullname = "Customers fullname: " + SearchedCustomer.Fullname;
-                    string Phone = "Phone number: " + SearchedCustomer.Phone;
-                    string Email = "Email: " + SearchedCustomer.Email;
-                    listBox1.Items.Add(Fullname);
-                    listBox1.Items.Add(Phone);
-                    listBox1.Items.Add(Email);
-                    listBox1.Items.Add(Favomsg);
+                    listBox1.Items.Add(SearchedCustomer);
                 }  
             }
             if (foundTarget == false)
@@ -102,6 +88,41 @@ namespace CRM2
             }
         
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            //Error när man denna knapp aktiveras utan ha seletat något, orsakar att programet få in till debugging läge/krashar.
+            string Favomsg = "";
+            string SelectedCustomer = listBox1.SelectedItem.ToString();
+                foreach (Customer x in CustomerList)
+                {
+                    if (SelectedCustomer == x.Fullname)
+                    {
+                        listBox1.Items.Clear();
+                        if (x.Favorite == true)
+                        {
+                            Favomsg = "Is marked as favorite customer";
+                        }
+                        else if (x.Favorite == false)
+                        {
+                            Favomsg = "Is not marked as favorite customer";
+                        }
+
+                        string Fullname = "Customers fullname: " + x.Fullname;
+                        string Phone = "Phone number: " + x.Phone;
+                        string Email = "Email: " + x.Email;
+                        listBox1.Items.Add(Fullname);
+                        listBox1.Items.Add(Phone);
+                        listBox1.Items.Add(Email);
+                        listBox1.Items.Add(Favomsg);
+
+                    }
+                }
+            
+        }
+
+
+
 
 
 
