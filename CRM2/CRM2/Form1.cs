@@ -123,6 +123,29 @@ namespace CRM2
             
         }
 
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+            string SelectedCustomer = listBox1.SelectedItem.ToString();
+
+            foreach(Customer x in CustomerList)
+            {
+                if(x.Fullname == SelectedCustomer)
+                {
+                    textBox1.Text = x.FirstName;
+                    textBox2.Text = x.Surname;
+                    textBox3.Text = x.Email;
+                    textBox4.Text = x.Phone;
+                }
+            }
+
+
+        }
+
+
+
+
+
 
 
 
